@@ -1,11 +1,12 @@
-# 直接用官方 Tomcat 镜像
+# 用 Tomcat 镜像
 FROM tomcat:9-jdk11-corretto
 
-# 把你的 webapp 目录复制到 Tomcat 的 ROOT 应用下
+# 把你的 webapp 目录复制到 Tomcat 根目录
 COPY src/main/webapp/ /usr/local/tomcat/webapps/ROOT/
 
-# Tomcat 默认端口是 8080，Render 要求监听 10000 端口，所以我们改一下
-RUN sed -i 's/8080/10000/g' /usr/local/tomcat/conf/server.xml
+# 给 Tomcat 根目录加一个跳转文件，自动跳转到 login.htm
+RUN echo '<html><head><script>window.location.href="login.htm"</script></head></html>' > /usr/local/tomcat/webapps/ROOT/index.html
 
-EXPOSE 10000
+# 端口不改，就用默认的 8080，Render 会自动映射
+EXPOSE 8080
 CMD ["catalina.sh", "run"]
