@@ -1,4 +1,4 @@
-# 构建阶段：使用带 Maven 的 Java 镜像
+# 构建阶段：使用带 Maven 的 Java 17 镜像
 FROM maven:3.8.5-openjdk-17 AS build
 WORKDIR /app
 
@@ -10,8 +10,8 @@ RUN mvn dependency:go-offline -B
 COPY src ./src
 RUN mvn clean package -DskipTests
 
-# 运行阶段：使用轻量级 Java 镜像
-FROM openjdk:17-jdk-slim
+# 运行阶段：使用 Eclipse Temurin 官方镜像（替代 openjdk:17-jdk-slim）
+FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 
 # 复制构建好的 war 包
