@@ -27,12 +27,11 @@ public class loginServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws
-            IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
-        // 1.接受网页上的文本值，共两个
+        // 1.接受网页上的文本框的值，共两个
         String uname = request.getParameter("username");
         String upsw = request.getParameter("userpsw");
         //2. 判断
@@ -47,8 +46,7 @@ public class loginServlet extends HttpServlet {
 
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws
-            IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         this.doGet(request, response);
     }
 }

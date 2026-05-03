@@ -21,24 +21,24 @@ public class AddUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws
             IOException {
-        request.setCharacterEncoding("utf-8");
+        request.setCharacterEncoding("utf-8");//
         String uname = request.getParameter("username");
         String nation = request.getParameter("nation");
         String gender = request.getParameter("gender");
-        String love[]= request.getParameterValues("love");
+        String love[] = request.getParameterValues("love");
         String intro = request.getParameter("intro");
         System.out.println(intro); //
         response.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
-        out.println(uname+"<br>");
-        out.println(nation+"<br>");
-        out.println(gender+"<br>");
-        for(int i =0;i<love.length;i++){
-            out.print(love[i]+",");
+        out.println(uname + "<br>");
+        out.println(nation + "<br>");
+        out.println(gender + "<br>");
+        for (int i = 0; i < love.length; i++) {
+            out.print(love[i] + ",");
         }
         out.print("<br>");
-        out.print(intro+"<br>");
+        out.print(intro + "<br>");
         out.close();
     }
 
