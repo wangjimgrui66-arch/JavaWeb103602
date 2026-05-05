@@ -21,15 +21,15 @@ public class AddUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws
             IOException {
-        request.setCharacterEncoding("utf-8");//
+        request.setCharacterEncoding("utf-8");//浏览器请求汉字乱码处理
         String uname = request.getParameter("username");
         String nation = request.getParameter("nation");
         String gender = request.getParameter("gender");
         String love[] = request.getParameterValues("love");
         String intro = request.getParameter("intro");
         System.out.println(intro); //
-        response.setCharacterEncoding("utf-8");
-        response.setContentType("text/html;charset=utf-8");
+        response.setCharacterEncoding("utf-8");//服务器响应汉字乱码处理
+        response.setContentType("text/html;charset=utf-8");//文本框汉字乱码的输出处理
         PrintWriter out = response.getWriter();
         out.println(uname + "<br>");
         out.println(nation + "<br>");

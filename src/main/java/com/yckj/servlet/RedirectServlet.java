@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * 重定向和转发
  * @author wjr
  * @version 1.0
  */
@@ -26,7 +27,8 @@ public class RedirectServlet extends HttpServlet {
         request.setAttribute("school","tyust--------");
         //跳转网页，重定向
         //response.sendRedirect("tyust.jsp");
-        request.getRequestDispatcher("tyust.jsp").forward(request,response);
+        //跳转网页，转发
+        request.getRequestDispatcher("tyust.jsp").forward(request,response); //链式编程
     }
 
     @Override

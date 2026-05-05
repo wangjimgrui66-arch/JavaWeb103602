@@ -24,13 +24,14 @@ public class LinkServlet extends HttpServlet {
         String uname = request.getParameter("username");
         String nation = request.getParameter("nation");
         String gender = request.getParameter("gender");
-        System.out.println(gender+"=======");
+        System.out.println(uname+"=======");
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws
             IOException {
-        this.doGet(request, response);
+            doGet(request,response);
     }
 }
  
